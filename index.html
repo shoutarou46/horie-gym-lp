@@ -190,13 +190,10 @@
     }
 
     .hero-inner {
-      max-width: 1080px;
-      margin: 0 auto;
+      width: 100%;
       padding: 80px 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 60px;
+      display: flex;
+      justify-content: center;
       position: relative;
       z-index: 1;
     }
@@ -287,11 +284,13 @@
       color: var(--text-light);
     }
 
-    /* 右側の画像エリア */
+    /* 画像エリア（全幅） */
     .hero-image {
+      width: 100%;
+      max-width: 1080px;
       border-radius: 24px;
       overflow: hidden;
-      aspect-ratio: 3/4;
+      aspect-ratio: 16/7;
       background: linear-gradient(145deg, var(--sage-pale) 0%, var(--bg2) 100%);
       position: relative;
     }
@@ -877,9 +876,11 @@
       nav { padding: 0 20px; }
 
       .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 40px;
         padding: 60px 24px 56px;
+      }
+
+      .hero-image {
+        aspect-ratio: 4/3;
       }
 
       .pain-layout { grid-template-columns: 1fr; gap: 28px; }
@@ -907,14 +908,6 @@
   <!-- ─── HERO ─── -->
   <header class="hero" role="banner">
     <div class="hero-inner">
-      <div class="hero-text">
-        <div class="hero-pill">新桜台駅 徒歩1分 ・ 練馬区</div>
-        <h1>ただ鍛えるだけではなく、<br>身体を整えながら<br><em>理想の身体へ。</em></h1>
-        <p class="hero-sub">姿勢・身体の使い方・筋力バランスを整えながら、<br>引き締まった健康的な身体をつくるマンツーマントレーニング。<br>柔道整復師・解剖学の専門家が監修。初心者の方も大歓迎です。</p>
-        <a href="#contact" class="hero-cta">体験レッスンを予約する</a>
-        <p class="hero-note">初心者歓迎 ・ 完全マンツーマン ・ 専門家監修</p>
-      </div>
-
       <!-- 画像ファイル（例: hero.jpg）をこのフォルダに入れて src="" を src="hero.jpg" に変更してください -->
       <div class="hero-image">
         <img src="" alt="ホリエジム 新桜台 全身矯正ピラティス" class="hero-img">
