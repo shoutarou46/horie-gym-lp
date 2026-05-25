@@ -536,9 +536,9 @@
     .reasons-section { background: var(--bg2); }
 
     .reasons-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
       margin-top: 48px;
     }
 
@@ -547,24 +547,32 @@
       border-radius: 20px;
       overflow: hidden;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       box-shadow: 0 2px 20px rgba(36,120,160,0.06);
       border: 1px solid rgba(75,168,204,0.1);
       transition: transform 0.2s;
+      min-height: 220px;
     }
 
     .reason-card:hover { transform: translateY(-3px); }
 
+    .reason-card-content {
+      padding: 32px 36px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      flex: 1;
+    }
+
     .reason-card-img {
-      width: 100%;
-      aspect-ratio: 16/9;
+      width: 42%;
+      flex-shrink: 0;
       background: var(--sage-pale);
-      border-bottom: 2px dashed var(--sage);
+      border-left: 2px dashed var(--sage);
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
     }
 
     .reason-card-img img {
@@ -578,14 +586,6 @@
     }
 
     .reason-card-img img[src=""] { display: none; }
-
-    .reason-card-content {
-      padding: 24px 28px 28px;
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      flex: 1;
-    }
 
     .about-photo-wrap {
       width: 100%;
@@ -1351,7 +1351,9 @@
       .pain-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .intro-list { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .approach-grid { grid-template-columns: 1fr; gap: 12px; }
-      .reasons-grid { grid-template-columns: 1fr; }
+      .reason-card { flex-direction: column; min-height: unset; }
+      .reason-card-img { width: 100%; aspect-ratio: 16/9; border-left: none; border-top: 2px dashed var(--sage); }
+      .reason-card-content { padding: 24px 20px 20px; }
       .voice-grid { grid-template-columns: 1fr; }
       .why-layout { grid-template-columns: 1fr; gap: 24px; }
       .results-grid { gap: 8px; }
@@ -1565,6 +1567,13 @@
       <h2 class="section-heading" id="reasons-heading">他とは違う、<br><em>ホリエジムが選ばれる理由</em></h2>
       <div class="reasons-grid">
         <article class="reason-card">
+          <div class="reason-card-content">
+            <div class="reason-badge" aria-hidden="true">8割<br>未経験</div>
+            <div class="reason-body">
+              <h3>8割が未経験からスタート</h3>
+              <p>「運動が苦手」「ジムが初めて」「体力に自信がない」そんな方がほとんどです。初めての方でも安心して始められるよう、一つひとつ丁寧にサポートします。</p>
+            </div>
+          </div>
           <div class="reason-card-img">
             <div class="photo-placeholder">
               <span class="photo-placeholder-icon">📷</span>
@@ -1573,15 +1582,15 @@
             </div>
             <img src="" alt="8割が未経験からスタート" class="">
           </div>
-          <div class="reason-card-content">
-            <div class="reason-badge" aria-hidden="true">8割<br>未経験</div>
-            <div class="reason-body">
-              <h3>8割が未経験からスタート</h3>
-              <p>「運動が苦手」「ジムが初めて」「体力に自信がない」そんな方がほとんどです。初めての方でも安心して始められるよう、一つひとつ丁寧にサポートします。</p>
-            </div>
-          </div>
         </article>
         <article class="reason-card">
+          <div class="reason-card-content">
+            <div class="reason-badge" aria-hidden="true">1 : 1</div>
+            <div class="reason-body">
+              <h3>完全マンツーマンだから安心</h3>
+              <p>レッスンは完全マンツーマン。周りを気にせず、あなたのペースで進められるので、運動初心者の方でも安心して通えます。</p>
+            </div>
+          </div>
           <div class="reason-card-img">
             <div class="photo-placeholder">
               <span class="photo-placeholder-icon">📷</span>
@@ -1590,15 +1599,15 @@
             </div>
             <img src="" alt="完全マンツーマンだから安心" class="">
           </div>
-          <div class="reason-card-content">
-            <div class="reason-badge" aria-hidden="true">1 : 1</div>
-            <div class="reason-body">
-              <h3>完全マンツーマンだから安心</h3>
-              <p>レッスンは完全マンツーマン。周りを気にせず、あなたのペースで進められるので、運動初心者の方でも安心して通えます。</p>
-            </div>
-          </div>
         </article>
         <article class="reason-card">
+          <div class="reason-card-content">
+            <div class="reason-badge" aria-hidden="true">国家<br>資格</div>
+            <div class="reason-body">
+              <h3>国家資格保有者・専門家監修</h3>
+              <p>柔道整復師や理学療法士など、身体の専門家がレッスン内容を監修。解剖学・身体構造に基づき、「どこの筋肉を、どう使うか」まで丁寧にサポートしながら、安全かつ効率的に身体づくりを行っていきます。</p>
+            </div>
+          </div>
           <div class="reason-card-img">
             <div class="photo-placeholder">
               <span class="photo-placeholder-icon">📷</span>
@@ -1607,15 +1616,15 @@
             </div>
             <img src="" alt="国家資格保有者・専門家監修" class="">
           </div>
-          <div class="reason-card-content">
-            <div class="reason-badge" aria-hidden="true">国家<br>資格</div>
-            <div class="reason-body">
-              <h3>国家資格保有者・専門家監修</h3>
-              <p>柔道整復師や理学療法士など、身体の専門家がレッスン内容を監修。解剖学・身体構造に基づき、「どこの筋肉を、どう使うか」まで丁寧にサポートしながら、安全かつ効率的に身体づくりを行っていきます。</p>
-            </div>
-          </div>
         </article>
         <article class="reason-card">
+          <div class="reason-card-content">
+            <div class="reason-badge" aria-hidden="true">個別<br>対応</div>
+            <div class="reason-body">
+              <h3>一人ひとりに合わせたプログラム</h3>
+              <p>身体の状態や目標は人それぞれ。姿勢・柔軟性・筋力バランスを確認し、あなたに合わせた内容をご提案します。だからこそ、無理なく続けやすく、変化を実感しやすいのです。</p>
+            </div>
+          </div>
           <div class="reason-card-img">
             <div class="photo-placeholder">
               <span class="photo-placeholder-icon">📷</span>
@@ -1623,13 +1632,6 @@
               <span class="photo-placeholder-hint">reason-04.jpg</span>
             </div>
             <img src="" alt="一人ひとりに合わせたプログラム" class="">
-          </div>
-          <div class="reason-card-content">
-            <div class="reason-badge" aria-hidden="true">個別<br>対応</div>
-            <div class="reason-body">
-              <h3>一人ひとりに合わせたプログラム</h3>
-              <p>身体の状態や目標は人それぞれ。姿勢・柔軟性・筋力バランスを確認し、あなたに合わせた内容をご提案します。だからこそ、無理なく続けやすく、変化を実感しやすいのです。</p>
-            </div>
           </div>
         </article>
       </div>
