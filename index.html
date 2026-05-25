@@ -384,80 +384,75 @@
     /* ─── PAIN ─── */
     .pain-section { background: var(--bg2); }
 
-    .pain-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-      margin-top: 48px;
-    }
-
-    .pain-list {
+    .pain-cards {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 40px;
     }
 
-    .pain-list li {
+    .pain-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(61,53,48,0.07);
+      transition: box-shadow 0.2s, transform 0.2s;
+      text-align: center;
+    }
+
+    .pain-card:hover {
+      box-shadow: 0 6px 24px rgba(61,53,48,0.13);
+      transform: translateY(-2px);
+    }
+
+    .pain-card-img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      overflow: hidden;
+      background: var(--sage-pale);
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 13px 18px;
-      background: var(--white);
-      border-radius: 12px;
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.5;
-      transition: box-shadow 0.2s;
+      justify-content: center;
     }
 
-    .pain-list li:hover {
-      box-shadow: 0 2px 16px rgba(75,168,204,0.15);
-    }
-
-    .pain-list li::before {
-      content: '✔︎';
+    .pain-card-img::after {
+      content: '写真を挿入';
+      font-size: 11px;
       color: var(--sage);
-      font-size: 12px;
-      flex-shrink: 0;
+      opacity: 0.65;
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
     }
 
-    .pain-box {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 36px 32px;
-      box-shadow: 0 4px 24px rgba(36,120,160,0.08);
+    .pain-card-img img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .pain-box h3 {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-
-    .pain-box p {
+    .pain-card-text {
+      padding: 10px 8px 13px;
       font-size: 13px;
-      color: var(--text-mid);
-      line-height: 2;
-      margin-bottom: 18px;
-    }
-
-    .pain-tags {
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.45;
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
     }
 
-    .pain-tag {
-      background: var(--rose-pale);
-      color: var(--rose);
-      font-size: 12px;
-      font-weight: 500;
-      padding: 5px 14px;
-      border-radius: 50px;
+    .pain-card-text::before {
+      content: '✔';
+      color: var(--sage);
+      font-size: 11px;
+      flex-shrink: 0;
     }
 
     /* ─── ABOUT ─── */
@@ -965,6 +960,20 @@
 
     .intro-list li::before { content: '・'; color: var(--sage); }
 
+    .intro-body-photo-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .intro-body-photo {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
     .intro-solution {
       background: var(--sage-pale);
       border-radius: 20px;
@@ -976,13 +985,6 @@
       font-size: 15px;
       color: var(--text);
       line-height: 2.4;
-    }
-
-    /* ─── PAIN (2col) ─── */
-    .pain-list-2col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
     }
 
     /* ─── WHY ─── */
@@ -1063,6 +1065,34 @@
       font-size: 14.5px;
       color: var(--text);
       line-height: 2.2;
+    }
+
+    .why-photo-wrap {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--sage-pale);
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed var(--sage);
+      position: relative;
+    }
+    .why-photo-wrap:has(img[src=""]):not(:has(img[src=""]:not([src=""])))::after {
+      content: "写真をここに挿入";
+      font-size: 0.9rem;
+      color: var(--sage-dark);
+      letter-spacing: 0.05em;
+    }
+    .why-photo-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .why-photo-img[src=""] {
+      display: none;
     }
 
     /* ─── FEATURES ─── */
@@ -1158,8 +1188,7 @@
         aspect-ratio: 4/3;
       }
 
-      .pain-layout { grid-template-columns: 1fr; gap: 28px; }
-      .pain-list-2col { grid-template-columns: 1fr; }
+      .pain-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .approach-grid { grid-template-columns: 1fr; gap: 12px; }
       .reasons-grid { grid-template-columns: 1fr; }
       .voice-grid { grid-template-columns: 1fr; }
@@ -1220,6 +1249,9 @@
           </ul>
           <p>など、<br>身体に負担がかかりやすくなってしまいます。</p>
           <p>ホリエジムでは、<br>ただ鍛えるだけではなく、<br>「姿勢」「身体の使い方」「筋力バランス」<br>を整えながら、<br>引き締まった健康的な身体づくりを<br>サポートしていきます。</p>
+          <div class="intro-body-photo-wrap">
+            <img src="body-photo.jpg" alt="ホリエジムのトレーニング風景" class="intro-body-photo" loading="lazy">
+          </div>
         </div>
       </div>
     </div>
@@ -1230,20 +1262,38 @@
     <div class="container">
       <p class="section-eyebrow">お悩み</p>
       <h2 class="section-heading" id="pain-heading">こんなお悩み<em>ありませんか？</em></h2>
-      <div class="pain-layout" style="margin-top:40px;">
-        <ul class="pain-list pain-list-2col">
-          <li>お腹まわりや下半身が気になる</li>
-          <li>姿勢が悪く見えてしまう</li>
-          <li>運動不足を感じている</li>
-          <li>ダイエットしても続かない</li>
-          <li>ジムに通っても変化を感じなかった</li>
-          <li>何をやればいいか分からない</li>
-          <li>肩こり・腰の負担・疲れやすさが気になる</li>
-          <li>健康的に身体を引き締めたい</li>
-          <li>無理な食事制限はしたくない</li>
-          <li>初心者でも安心して始めたい</li>
-        </ul>
-      </div>
+      <ul class="pain-cards">
+        <li class="pain-card">
+          <div class="pain-card-img">
+            <img src="images/pain-01.jpg" alt="お腹がぽっこり出る" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <p class="pain-card-text">お腹がぽっこり出る</p>
+        </li>
+        <li class="pain-card">
+          <div class="pain-card-img">
+            <img src="images/pain-02.jpg" alt="下半身ばかり張る" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <p class="pain-card-text">下半身ばかり張る</p>
+        </li>
+        <li class="pain-card">
+          <div class="pain-card-img">
+            <img src="images/pain-03.jpg" alt="肩や首に負担がかかる" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <p class="pain-card-text">肩や首に負担がかかる</p>
+        </li>
+        <li class="pain-card">
+          <div class="pain-card-img">
+            <img src="images/pain-04.jpg" alt="疲れやすくなる" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <p class="pain-card-text">疲れやすくなる</p>
+        </li>
+        <li class="pain-card">
+          <div class="pain-card-img">
+            <img src="images/pain-05.jpg" alt="ボディラインが崩れて見える" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <p class="pain-card-text">ボディラインが崩れて見える</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -1269,6 +1319,9 @@
         <div class="why-solution">
           <p>だからこそ大切なのは、<br>あなたの身体に合った方法で、<br>正しく身体を動かすこと。</p>
           <p>姿勢や身体の状態を確認しながら、<br>一人ひとりに合わせた<br>トレーニングを行っていきます。</p>
+          <div class="why-photo-wrap">
+            <img src="" alt="トレーニング風景" class="why-photo-img">
+          </div>
         </div>
       </div>
     </div>
