@@ -958,27 +958,25 @@
 
     .intro-list {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      padding: 16px 20px;
-      background: var(--bg2);
-      border-radius: 16px;
-      border-left: 3px solid var(--sage);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
     }
 
     .intro-list-item {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
+      text-align: center;
     }
 
     .intro-list-img {
-      width: 64px;
-      height: 64px;
-      flex-shrink: 0;
+      width: 100%;
+      aspect-ratio: 4/3;
       border-radius: 10px;
       background: var(--sage-pale);
+      border: 2px dashed var(--sage);
       position: relative;
       display: flex;
       align-items: center;
@@ -986,27 +984,12 @@
       overflow: hidden;
     }
 
-    .intro-list-img::before {
-      content: '';
-      position: absolute;
-      inset: 5px;
-      border: 1.5px dashed var(--sage-dark);
-      border-radius: 6px;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .intro-list-img::after {
-      content: '🖼' '\A' '写真';
-      white-space: pre;
-      text-align: center;
-      font-size: 9px;
-      font-weight: 700;
-      line-height: 1.8;
-      letter-spacing: 0.05em;
+    .intro-list-img-label {
+      font-size: 11px;
+      font-weight: 600;
       color: var(--sage-dark);
-      position: relative;
-      z-index: 2;
+      text-align: center;
+      line-height: 1.6;
       pointer-events: none;
     }
 
@@ -1021,41 +1004,57 @@
     }
 
     .intro-list-item span {
-      font-size: 14px;
+      font-size: 12.5px;
       color: var(--text-mid);
-      line-height: 1.6;
-      font-weight: 600;
+      line-height: 1.5;
+      font-weight: 700;
     }
 
     .intro-list-item span::before {
       content: '✔\00a0';
       color: var(--sage);
-      font-size: 12px;
+      font-size: 11px;
     }
 
-    /* 写真スロット：未配置のときは破線枠＋説明テキストを表示 */
+    /* 写真スロット */
     .intro-body-photo-wrap {
       border-radius: 16px;
       overflow: hidden;
       margin-top: 8px;
       position: relative;
-      min-height: 240px;
-      background: var(--bg2);
+      min-height: 280px;
+      background: var(--sage-pale);
       border: 2px dashed var(--sage);
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .intro-body-photo-wrap::after {
-      content: '📷  ここに写真が入ります\A（body-photo.jpg をこのフォルダに配置してください）';
-      white-space: pre;
-      color: var(--text-mid);
-      font-size: 13px;
+    .photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
       text-align: center;
-      line-height: 2;
-      padding: 16px;
+      padding: 24px;
       pointer-events: none;
+    }
+
+    .photo-placeholder-icon {
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+
+    .photo-placeholder-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .photo-placeholder-hint {
+      font-size: 11px;
+      color: var(--text-light);
     }
 
     .intro-body-photo {
@@ -1069,7 +1068,6 @@
       z-index: 1;
     }
 
-    /* 写真が読み込まれたら枠・ラベルを消す */
     .intro-body-photo-wrap.photo-loaded {
       border: none;
       min-height: unset;
@@ -1077,7 +1075,7 @@
       display: block;
     }
 
-    .intro-body-photo-wrap.photo-loaded::after { display: none; }
+    .intro-body-photo-wrap.photo-loaded .photo-placeholder { display: none; }
 
     .intro-body-photo-wrap.photo-loaded .intro-body-photo {
       position: static;
@@ -1188,31 +1186,17 @@
       border: 2px dashed var(--sage);
       position: relative;
     }
-    .why-photo-wrap::after {
-      content: "▲  写真をここに挿入";
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--sage-dark);
-      letter-spacing: 0.1em;
-      pointer-events: none;
-    }
     .why-photo-img {
       width: 100%;
       height: auto;
       display: block;
       object-fit: cover;
       border-radius: 14px;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
     }
-    .why-photo-img[src=""] {
-      display: none;
-    }
-    .why-photo-wrap:has(.why-photo-img:not([src=""]))::after {
-      display: none;
-    }
-    .why-photo-wrap:has(.why-photo-img:not([src=""])) {
-      border: none;
-      background: transparent;
-    }
+    .why-photo-img[src=""] { display: none; }
 
     /* ─── FEATURES ─── */
     .features-list {
@@ -1308,6 +1292,7 @@
       }
 
       .pain-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .intro-list { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .approach-grid { grid-template-columns: 1fr; gap: 12px; }
       .reasons-grid { grid-template-columns: 1fr; }
       .voice-grid { grid-template-columns: 1fr; }
@@ -1361,39 +1346,49 @@
           <p>姿勢や身体の使い方や土台が崩れることで、</p>
           <ul class="intro-list">
             <li class="intro-list-item">
+              <span>お腹がぽっこり出る</span>
               <div class="intro-list-img">
+                <span class="intro-list-img-label">📷 写真</span>
                 <img src="images/intro-pain-01.jpg" alt="お腹がぽっこり出る" loading="lazy" onerror="this.style.display='none'">
               </div>
-              <span>お腹がぽっこり出る</span>
             </li>
             <li class="intro-list-item">
+              <span>下半身ばかり張る</span>
               <div class="intro-list-img">
+                <span class="intro-list-img-label">📷 写真</span>
                 <img src="images/intro-pain-02.jpg" alt="下半身ばかり張る" loading="lazy" onerror="this.style.display='none'">
               </div>
-              <span>下半身ばかり張る</span>
             </li>
             <li class="intro-list-item">
+              <span>肩や首に負担がかかる</span>
               <div class="intro-list-img">
+                <span class="intro-list-img-label">📷 写真</span>
                 <img src="images/intro-pain-03.jpg" alt="肩や首に負担がかかる" loading="lazy" onerror="this.style.display='none'">
               </div>
-              <span>肩や首に負担がかかる</span>
             </li>
             <li class="intro-list-item">
+              <span>疲れやすくなる</span>
               <div class="intro-list-img">
+                <span class="intro-list-img-label">📷 写真</span>
                 <img src="images/intro-pain-04.jpg" alt="疲れやすくなる" loading="lazy" onerror="this.style.display='none'">
               </div>
-              <span>疲れやすくなる</span>
             </li>
             <li class="intro-list-item">
+              <span>ボディラインが崩れて見える</span>
               <div class="intro-list-img">
+                <span class="intro-list-img-label">📷 写真</span>
                 <img src="images/intro-pain-05.jpg" alt="ボディラインが崩れて見える" loading="lazy" onerror="this.style.display='none'">
               </div>
-              <span>ボディラインが崩れて見える</span>
             </li>
           </ul>
           <p>など、<br>身体に負担がかかりやすくなってしまいます。</p>
           <p>ホリエジムでは、<br>ただ鍛えるだけではなく、<br>「姿勢」「身体の使い方」「筋力バランス」<br>を整えながら、<br>引き締まった健康的な身体づくりを<br>サポートしていきます。</p>
           <div class="intro-body-photo-wrap">
+            <div class="photo-placeholder">
+              <span class="photo-placeholder-icon">📷</span>
+              <span class="photo-placeholder-text">ここに写真が入ります</span>
+              <span class="photo-placeholder-hint">body-photo.jpg をこのフォルダに配置してください</span>
+            </div>
             <img src="body-photo.jpg" alt="ホリエジムのトレーニング風景" class="intro-body-photo" loading="lazy"
               onload="this.parentElement.classList.add('photo-loaded')"
               onerror="this.style.display='none'">
@@ -1466,6 +1461,11 @@
           <p>だからこそ大切なのは、<br>あなたの身体に合った方法で、<br>正しく身体を動かすこと。</p>
           <p>姿勢や身体の状態を確認しながら、<br>一人ひとりに合わせた<br>トレーニングを行っていきます。</p>
           <div class="why-photo-wrap">
+            <div class="photo-placeholder">
+              <span class="photo-placeholder-icon">📷</span>
+              <span class="photo-placeholder-text">ここに写真が入ります</span>
+              <span class="photo-placeholder-hint">why-photo.jpg をこのフォルダに配置してください</span>
+            </div>
             <img src="" alt="トレーニング風景" class="why-photo-img">
           </div>
         </div>
