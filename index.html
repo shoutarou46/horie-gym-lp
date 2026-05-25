@@ -986,14 +986,42 @@
       border-radius: 16px;
       overflow: hidden;
       margin-top: 8px;
+      position: relative;
+    }
+
+    /* 写真未配置のときに表示されるプレースホルダー枠 */
+    .intro-body-photo-wrap::before {
+      content: '📷 ここに写真が入ります（body-photo.jpg を配置してください）';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg2);
+      border: 2px dashed var(--sage);
+      border-radius: 16px;
+      color: var(--text-mid);
+      font-size: 13px;
+      text-align: center;
+      padding: 16px;
+      min-height: 240px;
+      z-index: 0;
     }
 
     .intro-body-photo {
       width: 100%;
       height: auto;
+      min-height: 240px;
       display: block;
       object-fit: cover;
       border-radius: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 画像が読み込めない場合は透明にしてプレースホルダーを見せる */
+    .intro-body-photo[src="body-photo.jpg"]:not([naturalWidth]) {
+      opacity: 0;
     }
 
     .intro-solution {
@@ -1092,7 +1120,6 @@
     .why-photo-wrap {
       width: 100%;
       border-radius: 16px;
-      overflow: hidden;
       background: var(--sage-pale);
       min-height: 260px;
       display: flex;
@@ -1101,20 +1128,30 @@
       border: 2px dashed var(--sage);
       position: relative;
     }
-    .why-photo-wrap:has(img[src=""]):not(:has(img[src=""]:not([src=""])))::after {
-      content: "写真をここに挿入";
-      font-size: 0.9rem;
+    .why-photo-wrap::after {
+      content: "▲  写真をここに挿入";
+      font-size: 0.95rem;
+      font-weight: 500;
       color: var(--sage-dark);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
+      pointer-events: none;
     }
     .why-photo-img {
       width: 100%;
       height: auto;
       display: block;
       object-fit: cover;
+      border-radius: 14px;
     }
     .why-photo-img[src=""] {
       display: none;
+    }
+    .why-photo-wrap:has(.why-photo-img:not([src=""]))::after {
+      display: none;
+    }
+    .why-photo-wrap:has(.why-photo-img:not([src=""])) {
+      border: none;
+      background: transparent;
     }
 
     /* ─── FEATURES ─── */
