@@ -409,49 +409,43 @@
     .pain-card-img {
       width: 100%;
       aspect-ratio: 3/2;
-      overflow: hidden;
-      background: #f4fafd;
-      border: 2px dashed var(--sage);
+      background: var(--sage-pale);
       position: relative;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 6px;
     }
 
+    /* 点線の枠 */
     .pain-card-img::before {
       content: '';
-      display: block;
-      width: 36px;
-      height: 28px;
-      border: 2px solid var(--sage);
-      border-radius: 5px;
-      position: relative;
-      z-index: 0;
-      opacity: 0.5;
-    }
-
-    .pain-card-img::before,
-    .pain-card-img::after {
+      position: absolute;
+      inset: 8px;
+      border: 2px dashed var(--sage-dark);
+      border-radius: 8px;
+      z-index: 1;
       pointer-events: none;
     }
 
+    /* アイコン＋テキスト */
     .pain-card-img::after {
-      content: '写真を挿入';
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      content: '🖼' '\A' '写真を挿入';
+      white-space: pre;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 2;
+      letter-spacing: 0.1em;
       color: var(--sage-dark);
-      opacity: 0.55;
       position: relative;
-      z-index: 0;
+      z-index: 2;
+      pointer-events: none;
     }
 
     .pain-card-img img {
       position: absolute;
       inset: 0;
-      z-index: 1;
+      z-index: 3;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -982,46 +976,55 @@
 
     .intro-list li::before { content: '・'; color: var(--sage); }
 
+    /* 写真スロット：未配置のときは破線枠＋説明テキストを表示 */
     .intro-body-photo-wrap {
       border-radius: 16px;
       overflow: hidden;
       margin-top: 8px;
       position: relative;
-    }
-
-    /* 写真未配置のときに表示されるプレースホルダー枠 */
-    .intro-body-photo-wrap::before {
-      content: '📷 ここに写真が入ります（body-photo.jpg を配置してください）';
-      position: absolute;
-      inset: 0;
+      min-height: 240px;
+      background: var(--bg2);
+      border: 2px dashed var(--sage);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--bg2);
-      border: 2px dashed var(--sage);
-      border-radius: 16px;
+    }
+
+    .intro-body-photo-wrap::after {
+      content: '📷  ここに写真が入ります\A（body-photo.jpg をこのフォルダに配置してください）';
+      white-space: pre;
       color: var(--text-mid);
       font-size: 13px;
       text-align: center;
+      line-height: 2;
       padding: 16px;
-      min-height: 240px;
-      z-index: 0;
+      pointer-events: none;
     }
 
     .intro-body-photo {
       width: 100%;
       height: auto;
-      min-height: 240px;
       display: block;
       object-fit: cover;
-      border-radius: 16px;
-      position: relative;
+      border-radius: 14px;
+      position: absolute;
+      inset: 0;
       z-index: 1;
     }
 
-    /* 画像が読み込めない場合は透明にしてプレースホルダーを見せる */
-    .intro-body-photo[src="body-photo.jpg"]:not([naturalWidth]) {
-      opacity: 0;
+    /* 写真が読み込まれたら枠・ラベルを消す */
+    .intro-body-photo-wrap.photo-loaded {
+      border: none;
+      min-height: unset;
+      background: none;
+      display: block;
+    }
+
+    .intro-body-photo-wrap.photo-loaded::after { display: none; }
+
+    .intro-body-photo-wrap.photo-loaded .intro-body-photo {
+      position: static;
+      height: auto;
     }
 
     .intro-solution {
@@ -1309,7 +1312,9 @@
           <p>など、<br>身体に負担がかかりやすくなってしまいます。</p>
           <p>ホリエジムでは、<br>ただ鍛えるだけではなく、<br>「姿勢」「身体の使い方」「筋力バランス」<br>を整えながら、<br>引き締まった健康的な身体づくりを<br>サポートしていきます。</p>
           <div class="intro-body-photo-wrap">
-            <img src="body-photo.jpg" alt="ホリエジムのトレーニング風景" class="intro-body-photo" loading="lazy">
+            <img src="body-photo.jpg" alt="ホリエジムのトレーニング風景" class="intro-body-photo" loading="lazy"
+              onload="this.parentElement.classList.add('photo-loaded')"
+              onerror="this.style.display='none'">
           </div>
         </div>
       </div>
