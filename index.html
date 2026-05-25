@@ -1283,6 +1283,64 @@
       flex-shrink: 0;
     }
 
+    /* ─── FEATURES 2-COL LAYOUT ─── */
+    .features-layout {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+    .features-left {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+    .features-heading {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .features-illust {
+      flex: 0 0 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .illust-card {
+      background: var(--bg2);
+      border-radius: 16px;
+      padding: 14px 12px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(138,170,140,0.2);
+    }
+    .illust-card svg {
+      width: 72px;
+      height: auto;
+    }
+    .illust-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--sage-dark);
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 640px) {
+      .features-layout {
+        flex-direction: column;
+      }
+      .features-illust {
+        flex-direction: row;
+        flex: none;
+        width: 100%;
+      }
+      .illust-card {
+        flex: 1;
+      }
+    }
+
     /* ─── RESULTS ─── */
     .results-section { background: var(--bg); }
 
@@ -1538,7 +1596,6 @@
       <p class="section-eyebrow">プログラム</p>
       <h2 class="section-heading" id="about-heading">ホリエジムの<br><em>パーソナルトレーニング</em>とは？</h2>
       <p class="about-lead">身体をただ追い込むだけではなく、"キレイに整った身体"をつくるためのマンツーマントレーニングです。</p>
-      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:4px;">パーソナルトレーニングの特徴</h3>
       <div class="about-photo-wrap">
         <div class="photo-placeholder">
           <span class="photo-placeholder-icon">📷</span>
@@ -1547,15 +1604,66 @@
         </div>
         <img src="" alt="パーソナルトレーニング風景" class="about-photo-img">
       </div>
-      <ul class="features-list">
-        <li>姿勢や身体のバランスをチェック</li>
-        <li>体力レベルに合わせた無理のない運動</li>
-        <li>引き締め・ボディメイク・運動不足解消</li>
-        <li>体幹を活かした効率的な身体づくり</li>
-        <li>肩こり・腰の負担・姿勢改善にもアプローチ</li>
-        <li>正しいフォームを丁寧にサポート</li>
-        <li>継続しやすい運動習慣づくり</li>
-      </ul>
+      <div class="features-layout">
+        <div class="features-left">
+          <h3 class="features-heading">パーソナルトレーニングの特徴</h3>
+          <ul class="features-list">
+            <li>姿勢や身体のバランスをチェック</li>
+            <li>体力レベルに合わせた無理のない運動</li>
+            <li>引き締め・ボディメイク・運動不足解消</li>
+            <li>体幹を活かした効率的な身体づくり</li>
+            <li>肩こり・腰の負担・姿勢改善にもアプローチ</li>
+            <li>正しいフォームを丁寧にサポート</li>
+            <li>継続しやすい運動習慣づくり</li>
+          </ul>
+        </div>
+        <div class="features-illust">
+          <!-- イラスト1: 姿勢チェック -->
+          <div class="illust-card">
+            <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="40" cy="52" r="38" fill="#e8f0e8"/>
+              <line x1="40" y1="14" x2="40" y2="90" stroke="#8aaa8c" stroke-width="1.2" stroke-dasharray="3,2" opacity="0.7"/>
+              <circle cx="40" cy="24" r="9" fill="#fdf9f6" stroke="#8aaa8c" stroke-width="2"/>
+              <rect x="30" y="33" width="20" height="26" rx="5" fill="#8aaa8c" opacity="0.85"/>
+              <path d="M30 38 L16 56" stroke="#8aaa8c" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+              <path d="M50 38 L64 56" stroke="#8aaa8c" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+              <path d="M36 59 L32 82" stroke="#8aaa8c" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+              <path d="M44 59 L48 82" stroke="#8aaa8c" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+              <circle cx="66" cy="22" r="11" fill="#5c7d5e"/>
+              <polyline points="60,22 65,28 72,15" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="illust-card-label">姿勢・バランスチェック</span>
+          </div>
+          <!-- イラスト2: 体幹トレーニング（ブリッジポーズ） -->
+          <div class="illust-card">
+            <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <ellipse cx="50" cy="42" rx="46" ry="34" fill="#e8f0e8"/>
+              <rect x="12" y="63" width="76" height="7" rx="3.5" fill="#8aaa8c" opacity="0.25"/>
+              <rect x="15" y="49" width="8" height="18" rx="4" fill="#8aaa8c" opacity="0.75"/>
+              <rect x="27" y="49" width="8" height="18" rx="4" fill="#8aaa8c" opacity="0.75"/>
+              <path d="M18 52 Q24 22 46 20 Q68 18 74 52" stroke="#8aaa8c" stroke-width="11" stroke-linecap="round" fill="none" opacity="0.8"/>
+              <rect x="63" y="41" width="22" height="18" rx="9" fill="#8aaa8c" opacity="0.8"/>
+              <circle cx="86" cy="46" r="9" fill="#fdf9f6" stroke="#8aaa8c" stroke-width="2"/>
+              <ellipse cx="46" cy="22" rx="11" ry="6" fill="none" stroke="#c9867a" stroke-width="1.8" stroke-dasharray="3,2" opacity="0.8"/>
+            </svg>
+            <span class="illust-card-label">体幹トレーニング</span>
+          </div>
+          <!-- イラスト3: ストレッチ・継続サポート -->
+          <div class="illust-card">
+            <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="40" cy="52" r="38" fill="#e8f0e8"/>
+              <path d="M33 18 L40 10 L47 18" stroke="#5c7d5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="40" cy="28" r="9" fill="#fdf9f6" stroke="#8aaa8c" stroke-width="2"/>
+              <rect x="30" y="37" width="20" height="24" rx="5" fill="#8aaa8c" opacity="0.85"/>
+              <path d="M30 42 L15 28" stroke="#8aaa8c" stroke-width="6" stroke-linecap="round"/>
+              <path d="M50 42 L65 28" stroke="#8aaa8c" stroke-width="6" stroke-linecap="round"/>
+              <path d="M36 61 L32 82" stroke="#8aaa8c" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+              <path d="M44 61 L48 82" stroke="#8aaa8c" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+            </svg>
+            <span class="illust-card-label">継続的なサポート</span>
+          </div>
+        </div>
+      </div>
       <p class="about-lead" style="margin-top:0;margin-bottom:0;">身体の使い方が変わることで、<br>姿勢やボディラインも自然と変わっていきます。</p>
     </div>
   </section>
