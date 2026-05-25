@@ -960,21 +960,78 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      padding: 20px 24px;
+      gap: 8px;
+      padding: 16px 20px;
       background: var(--bg2);
       border-radius: 16px;
       border-left: 3px solid var(--sage);
     }
 
-    .intro-list li {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.8;
-      padding-left: 4px;
+    .intro-list-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .intro-list li::before { content: '・'; color: var(--sage); }
+    .intro-list-img {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: var(--sage-pale);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .intro-list-img::before {
+      content: '';
+      position: absolute;
+      inset: 5px;
+      border: 1.5px dashed var(--sage-dark);
+      border-radius: 6px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .intro-list-img::after {
+      content: '🖼' '\A' '写真';
+      white-space: pre;
+      text-align: center;
+      font-size: 9px;
+      font-weight: 700;
+      line-height: 1.8;
+      letter-spacing: 0.05em;
+      color: var(--sage-dark);
+      position: relative;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .intro-list-img img {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .intro-list-item span {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .intro-list-item span::before {
+      content: '✔\00a0';
+      color: var(--sage);
+      font-size: 12px;
+    }
 
     /* 写真スロット：未配置のときは破線枠＋説明テキストを表示 */
     .intro-body-photo-wrap {
@@ -1303,11 +1360,36 @@
           <p>実は、<br>身体が変わりにくい原因は、<br>"筋力不足""運動不足"だけではありません。</p>
           <p>姿勢や身体の使い方や土台が崩れることで、</p>
           <ul class="intro-list">
-            <li>お腹がぽっこり出る</li>
-            <li>下半身ばかり張る</li>
-            <li>肩や首に負担がかかる</li>
-            <li>疲れやすくなる</li>
-            <li>ボディラインが崩れて見える</li>
+            <li class="intro-list-item">
+              <div class="intro-list-img">
+                <img src="images/intro-pain-01.jpg" alt="お腹がぽっこり出る" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span>お腹がぽっこり出る</span>
+            </li>
+            <li class="intro-list-item">
+              <div class="intro-list-img">
+                <img src="images/intro-pain-02.jpg" alt="下半身ばかり張る" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span>下半身ばかり張る</span>
+            </li>
+            <li class="intro-list-item">
+              <div class="intro-list-img">
+                <img src="images/intro-pain-03.jpg" alt="肩や首に負担がかかる" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span>肩や首に負担がかかる</span>
+            </li>
+            <li class="intro-list-item">
+              <div class="intro-list-img">
+                <img src="images/intro-pain-04.jpg" alt="疲れやすくなる" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span>疲れやすくなる</span>
+            </li>
+            <li class="intro-list-item">
+              <div class="intro-list-img">
+                <img src="images/intro-pain-05.jpg" alt="ボディラインが崩れて見える" loading="lazy" onerror="this.style.display='none'">
+              </div>
+              <span>ボディラインが崩れて見える</span>
+            </li>
           </ul>
           <p>など、<br>身体に負担がかかりやすくなってしまいます。</p>
           <p>ホリエジムでは、<br>ただ鍛えるだけではなく、<br>「姿勢」「身体の使い方」「筋力バランス」<br>を整えながら、<br>引き締まった健康的な身体づくりを<br>サポートしていきます。</p>
