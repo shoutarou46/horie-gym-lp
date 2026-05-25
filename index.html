@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>全身矯正ピラティス｜ホリエジム 新桜台【新桜台駅徒歩1分・マンツーマン・専門家監修】</title>
-  <meta name="description" content="新桜台駅徒歩1分のパーソナルジム「ホリエジム」。柔道整復師監修の全身矯正ピラティスで姿勢改善・ボディメイクをサポート。初心者OK・完全マンツーマン指導。体験レッスン受付中。">
-  <meta name="keywords" content="ホリエジム,新桜台,ピラティス,姿勢矯正,パーソナルジム,練馬,ボディメイク,柔道整復師,マンツーマン,体験レッスン,姿勢改善,O脚,猫背,反り腰">
+  <title>パーソナルトレーニング｜ホリエジム 新桜台【新桜台駅徒歩1分・マンツーマン・専門家監修】</title>
+  <meta name="description" content="新桜台駅徒歩1分のパーソナルジム「ホリエジム」。姿勢・身体の使い方・筋力バランスを整えながら、引き締まった健康的な身体づくりをサポート。柔道整復師監修・完全マンツーマン。初心者OK・体験トレーニング受付中。">
+  <meta name="keywords" content="ホリエジム,新桜台,パーソナルトレーニング,姿勢矯正,パーソナルジム,練馬,ボディメイク,柔道整復師,マンツーマン,体験トレーニング,姿勢改善,肩こり,引き締め,初心者">
   <meta name="robots" content="index, follow">
   <meta name="author" content="ホリエジム">
   <link rel="canonical" href="https://horie-gym.jp/">
@@ -191,11 +191,45 @@
 
     .hero-inner {
       width: 100%;
-      padding: 80px 40px;
+      padding: 80px 40px 60px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
       position: relative;
       z-index: 1;
+    }
+
+    .hero-title { text-align: center; }
+
+    .hero-service {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: var(--sage-dark);
+      margin-bottom: 10px;
+    }
+
+    .hero-gym-name {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 14px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-tags {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-location {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
     }
 
     .hero-pill {
@@ -871,6 +905,234 @@
       letter-spacing: 0.1em;
     }
 
+    /* ─── INTRO ─── */
+    .intro-section { background: var(--bg); }
+
+    .intro-layout { max-width: 720px; }
+
+    .intro-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      letter-spacing: 0.03em;
+    }
+
+    .intro-body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .intro-body > p {
+      font-size: 14.5px;
+      color: var(--text-mid);
+      line-height: 2.3;
+    }
+
+    .intro-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 20px 24px;
+      background: var(--bg2);
+      border-radius: 16px;
+      border-left: 3px solid var(--sage);
+    }
+
+    .intro-list li {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-left: 4px;
+    }
+
+    .intro-list li::before { content: '・'; color: var(--sage); }
+
+    .intro-solution {
+      background: var(--sage-pale);
+      border-radius: 20px;
+      padding: 32px 36px;
+    }
+
+    .intro-solution p {
+      font-family: var(--serif);
+      font-size: 15px;
+      color: var(--text);
+      line-height: 2.4;
+    }
+
+    /* ─── PAIN (2col) ─── */
+    .pain-list-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    /* ─── WHY ─── */
+    .why-section { background: var(--bg2); }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .why-problem {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 2px 16px rgba(92,125,94,0.07);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .why-problem > p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.1;
+    }
+
+    .why-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .why-list li {
+      font-size: 13.5px;
+      color: var(--text-mid);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.8;
+    }
+
+    .why-list li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: var(--rose);
+    }
+
+    .why-result {
+      background: var(--rose-pale);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 13.5px;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    .why-solution {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .why-solution > p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.3;
+    }
+
+    .why-solution-box {
+      background: var(--sage-pale);
+      border-radius: 16px;
+      padding: 28px 28px;
+      font-family: var(--serif);
+      font-size: 14.5px;
+      color: var(--text);
+      line-height: 2.2;
+    }
+
+    /* ─── FEATURES ─── */
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 20px;
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-mid);
+      padding: 10px 16px;
+      background: var(--bg2);
+      border-radius: 10px;
+      line-height: 1.7;
+    }
+
+    .features-list li::before {
+      content: '・';
+      color: var(--sage);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ─── RESULTS ─── */
+    .results-section { background: var(--bg); }
+
+    .results-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 40px;
+    }
+
+    .result-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border: 1px solid rgba(138,170,140,0.2);
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 13.5px;
+      color: var(--text-mid);
+      box-shadow: 0 2px 10px rgba(92,125,94,0.06);
+    }
+
+    .result-tag::before {
+      content: '✓';
+      color: var(--sage);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ─── PHILOSOPHY ─── */
+    .philosophy-section { background: var(--bg2); }
+
+    .philosophy-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .philosophy-inner > p {
+      font-size: 14.5px;
+      color: var(--text-mid);
+      line-height: 2.5;
+    }
+
+    .philosophy-highlight {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--sage-dark);
+      margin-top: 24px;
+      line-height: 2;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 860px) {
       nav { padding: 0 20px; }
@@ -884,9 +1146,12 @@
       }
 
       .pain-layout { grid-template-columns: 1fr; gap: 28px; }
+      .pain-list-2col { grid-template-columns: 1fr; }
       .approach-grid { grid-template-columns: 1fr; gap: 12px; }
       .reasons-grid { grid-template-columns: 1fr; }
       .voice-grid { grid-template-columns: 1fr; }
+      .why-layout { grid-template-columns: 1fr; gap: 24px; }
+      .results-grid { gap: 8px; }
 
       .container { padding: 0 20px; }
       section { padding: 64px 0; }
@@ -910,37 +1175,87 @@
     <div class="hero-inner">
       <!-- 画像ファイル（例: hero.jpg）をこのフォルダに入れて src="" を src="hero.jpg" に変更してください -->
       <div class="hero-image">
-        <img src="" alt="ホリエジム 新桜台 全身矯正ピラティス" class="hero-img">
+        <img src="" alt="ホリエジム 新桜台 パーソナルトレーニング" class="hero-img">
+      </div>
+      <div class="hero-title">
+        <p class="hero-service">パーソナルトレーニング</p>
+        <h1 class="hero-gym-name">ホリエジム 新桜台</h1>
+        <p class="hero-tags">初心者OK｜マンツーマン指導｜専門家監修</p>
+        <p class="hero-location">新桜台駅徒歩1分</p>
       </div>
     </div>
   </header>
+
+  <!-- ─── INTRO ─── -->
+  <section class="intro-section" aria-labelledby="intro-heading">
+    <div class="container">
+      <div class="intro-layout">
+        <h2 class="intro-heading" id="intro-heading">ただ鍛えるだけではなく、<br>身体を整えながら理想の身体へ。</h2>
+        <div class="intro-body">
+          <p>「最近、体型が崩れてきた…」<br>「運動してもなかなか変わらない…」<br>「肩こりや疲れやすさも気になる…」<br>そんな悩みを感じていませんか？</p>
+          <p>実は、<br>身体が変わりにくい原因は、<br>"筋力不足""運動不足"だけではありません。</p>
+          <p>姿勢や身体の使い方や土台が崩れることで、</p>
+          <ul class="intro-list">
+            <li>お腹がぽっこり出る</li>
+            <li>下半身ばかり張る</li>
+            <li>肩や首に負担がかかる</li>
+            <li>疲れやすくなる</li>
+            <li>ボディラインが崩れて見える</li>
+          </ul>
+          <p>など、<br>身体に負担がかかりやすくなってしまいます。</p>
+          <div class="intro-solution">
+            <p>ホリエジムでは、<br>ただ鍛えるだけではなく、<br>「姿勢」「身体の使い方」「筋力バランス」<br>を整えながら、<br>引き締まった健康的な身体づくりを<br>サポートしていきます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ─── PAIN ─── -->
   <section class="pain-section" aria-labelledby="pain-heading">
     <div class="container">
       <p class="section-eyebrow">お悩み</p>
-      <h2 class="section-heading" id="pain-heading">こんなお悩み、<em>ありませんか？</em></h2>
-
-      <div class="pain-layout">
-        <ul class="pain-list">
-          <li>姿勢が悪く、実年齢より老けて見える</li>
-          <li>ぽっこりお腹が気になってきた</li>
-          <li>二の腕・お尻・太もものたるみが気になる</li>
-          <li>ダイエットしてもキレイに痩せない</li>
-          <li>O脚・X脚で脚のラインが気になる</li>
-          <li>運動しても太ももばかり張ってしまう</li>
+      <h2 class="section-heading" id="pain-heading">こんなお悩み<em>ありませんか？</em></h2>
+      <div class="pain-layout" style="margin-top:40px;">
+        <ul class="pain-list pain-list-2col">
+          <li>お腹まわりや下半身が気になる</li>
+          <li>姿勢が悪く見えてしまう</li>
+          <li>運動不足を感じている</li>
+          <li>ダイエットしても続かない</li>
+          <li>ジムに通っても変化を感じなかった</li>
           <li>何をやればいいか分からない</li>
-          <li>ジムが続かなかった経験がある</li>
+          <li>肩こり・腰の負担・疲れやすさが気になる</li>
+          <li>健康的に身体を引き締めたい</li>
+          <li>無理な食事制限はしたくない</li>
+          <li>初心者でも安心して始めたい</li>
         </ul>
+      </div>
+    </div>
+  </section>
 
-        <div class="pain-box">
-          <h3>頑張っているのに変わらない理由</h3>
-          <p>姿勢や身体の使い方が崩れたままでは、正しい筋肉が使えず、間違ったクセが定着してしまいます。だからこそ、まず身体の土台を整えることが大切です。</p>
-          <div class="pain-tags">
-            <span class="pain-tag">腰ばかり反る</span>
-            <span class="pain-tag">太ももばかり使う</span>
-            <span class="pain-tag">肩・首に力が入る</span>
-            <span class="pain-tag">下半身だけ張る</span>
+  <!-- ─── WHY ─── -->
+  <section class="why-section" aria-labelledby="why-heading">
+    <div class="container">
+      <p class="section-eyebrow">変わらない理由</p>
+      <h2 class="section-heading" id="why-heading">頑張っているのに、<br><em>なかなか身体が変わらない理由</em></h2>
+      <div class="why-layout">
+        <div class="why-problem">
+          <p>自己流で運動をすると、</p>
+          <ul class="why-list">
+            <li>太ももばかり使ってしまう</li>
+            <li>腰だけ反ってしまう</li>
+            <li>肩や首に力が入りやすい</li>
+            <li>正しいフォームが分からない</li>
+          </ul>
+          <p>など、<br>身体に合わない動き方をしてしまうことがあります。</p>
+          <div class="why-result">
+            その結果、<br>「頑張っているのに変わらない」<br>状態になってしまうことも。
+          </div>
+        </div>
+        <div class="why-solution">
+          <p>だからこそ大切なのは、<br>あなたの身体に合った方法で、<br>正しく身体を動かすこと。</p>
+          <div class="why-solution-box">
+            ホリエジムでは、<br>姿勢や身体の状態を確認しながら、<br>一人ひとりに合わせた<br>トレーニングを行っていきます。
           </div>
         </div>
       </div>
@@ -951,26 +1266,19 @@
   <section class="about-section" aria-labelledby="about-heading">
     <div class="container">
       <p class="section-eyebrow">プログラム</p>
-      <h2 class="section-heading" id="about-heading">全身矯正ピラティスとは</h2>
-      <p class="about-lead">動いて、伸ばして、整える。身体の内側からアプローチするボディメイクピラティスです。身体の"軸"が整うことで、姿勢もボディラインも自然と変わっていきます。</p>
-
-      <div class="approach-grid" role="list">
-        <article class="approach-card" role="listitem">
-          <div class="approach-icon" aria-hidden="true">01</div>
-          <h3>姿勢・骨盤バランスを整える</h3>
-          <p>背骨や骨盤まわりのバランスを調整。猫背・反り腰・O脚・X脚など姿勢の崩れへアプローチします。</p>
-        </article>
-        <article class="approach-card" role="listitem">
-          <div class="approach-icon" aria-hidden="true">02</div>
-          <h3>インナーマッスルを活性化</h3>
-          <p>体幹の深部筋（インナーマッスル）を活性化。筋肉のバランスを整え、しなやかな身体へ導きます。</p>
-        </article>
-        <article class="approach-card" role="listitem">
-          <div class="approach-icon" aria-hidden="true">03</div>
-          <h3>美しいボディラインへ</h3>
-          <p>無理なく自然に引き締まりやすい身体づくり。疲れにくく、美しい姿勢をキープしやすくなります。</p>
-        </article>
-      </div>
+      <h2 class="section-heading" id="about-heading">ホリエジムの<br><em>パーソナルトレーニング</em>とは？</h2>
+      <p class="about-lead">身体をただ追い込むだけではなく、"キレイに整った身体"をつくるためのマンツーマントレーニングです。</p>
+      <h3 style="font-size:1rem;font-weight:700;color:var(--text);margin-bottom:4px;">パーソナルトレーニングの特徴</h3>
+      <ul class="features-list">
+        <li>姿勢や身体のバランスをチェック</li>
+        <li>体力レベルに合わせた無理のない運動</li>
+        <li>引き締め・ボディメイク・運動不足解消</li>
+        <li>体幹を活かした効率的な身体づくり</li>
+        <li>肩こり・腰の負担・姿勢改善にもアプローチ</li>
+        <li>正しいフォームを丁寧にサポート</li>
+        <li>継続しやすい運動習慣づくり</li>
+      </ul>
+      <p class="about-lead" style="margin-top:32px;margin-bottom:0;">身体の使い方が変わることで、<br>姿勢やボディラインも自然と変わっていきます。</p>
     </div>
   </section>
 
@@ -978,63 +1286,66 @@
   <section class="reasons-section" aria-labelledby="reasons-heading">
     <div class="container">
       <p class="section-eyebrow">選ばれる理由</p>
-      <h2 class="section-heading" id="reasons-heading">ホリエジムが<em>選ばれる</em>理由</h2>
-
+      <h2 class="section-heading" id="reasons-heading">他とは違う、<br><em>ホリエジムが選ばれる理由</em></h2>
       <div class="reasons-grid">
         <article class="reason-card">
           <div class="reason-badge" aria-hidden="true">8割<br>未経験</div>
           <div class="reason-body">
             <h3>8割が未経験からスタート</h3>
-            <p>「運動が苦手」「身体が硬い」「ピラティスは初めて」そんな方がほとんど。初めての方でも安心して始められるよう、一つひとつ丁寧にサポートします。</p>
+            <p>「運動が苦手」「ジムが初めて」「体力に自信がない」そんな方がほとんどです。初めての方でも安心して始められるよう、一つひとつ丁寧にサポートします。</p>
           </div>
         </article>
         <article class="reason-card">
           <div class="reason-badge" aria-hidden="true">1 : 1</div>
           <div class="reason-body">
-            <h3>完全マンツーマン指導</h3>
-            <p>レッスンは完全マンツーマン。周りを気にせず、あなたのペースで進められるので、運動が苦手な方でも安心して通えます。</p>
+            <h3>完全マンツーマンだから安心</h3>
+            <p>レッスンは完全マンツーマン。周りを気にせず、あなたのペースで進められるので、運動初心者の方でも安心して通えます。</p>
           </div>
         </article>
         <article class="reason-card">
           <div class="reason-badge" aria-hidden="true">国家<br>資格</div>
           <div class="reason-body">
             <h3>国家資格保有者・専門家監修</h3>
-            <p>柔道整復師や理学療法士など、身体の専門家がレッスン内容を監修。解剖学・身体構造に基づいた安全かつ効果的なプログラムをご提供します。</p>
+            <p>柔道整復師や理学療法士など、身体の専門家がレッスン内容を監修。解剖学・身体構造に基づき、「どこの筋肉を、どう使うか」まで丁寧にサポートしながら、安全かつ効率的に身体づくりを行っていきます。</p>
           </div>
         </article>
         <article class="reason-card">
           <div class="reason-badge" aria-hidden="true">個別<br>対応</div>
           <div class="reason-body">
             <h3>一人ひとりに合わせたプログラム</h3>
-            <p>カウンセリングと姿勢チェックを行い、あなたに合わせたメニューをご提案。だからこそ、無理なく続けやすく、変化を実感しやすいのです。</p>
+            <p>身体の状態や目標は人それぞれ。姿勢・柔軟性・筋力バランスを確認し、あなたに合わせた内容をご提案します。だからこそ、無理なく続けやすく、変化を実感しやすいのです。</p>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ─── VOICE ─── -->
-  <section class="voice-section" aria-labelledby="voice-heading">
+  <!-- ─── RESULTS ─── -->
+  <section class="results-section" aria-labelledby="results-heading">
     <div class="container">
-      <p class="section-eyebrow">お客様の声</p>
-      <h2 class="section-heading" id="voice-heading">こんな<em>変化</em>を感じています</h2>
+      <p class="section-eyebrow">お客様の変化</p>
+      <h2 class="section-heading" id="results-heading">こんな<em>変化</em>を感じる方が増えています</h2>
+      <div class="results-grid">
+        <span class="result-tag">姿勢がキレイになった</span>
+        <span class="result-tag">お腹まわりがスッキリしてきた</span>
+        <span class="result-tag">身体が軽くなった</span>
+        <span class="result-tag">疲れにくくなった</span>
+        <span class="result-tag">肩や腰の負担がラクになった</span>
+        <span class="result-tag">洋服がキレイに着られるようになった</span>
+        <span class="result-tag">身体を動かすことが楽しくなった</span>
+        <span class="result-tag">運動習慣が身についた</span>
+      </div>
+    </div>
+  </section>
 
-      <div class="voice-grid">
-        <blockquote class="voice-card">
-          <div class="voice-mark" aria-hidden="true">"</div>
-          <p>「姿勢がキレイになったね」と周りから言われるようになりました。写真に写るのが嫌じゃなくなった。</p>
-          <div class="voice-card-dot" aria-hidden="true"></div>
-        </blockquote>
-        <blockquote class="voice-card">
-          <div class="voice-mark" aria-hidden="true">"</div>
-          <p>パンツが履きやすくなり、お腹まわりがスッキリ。肩や腰もラクになって、毎日の疲れ方が違います。</p>
-          <div class="voice-card-dot" aria-hidden="true"></div>
-        </blockquote>
-        <blockquote class="voice-card">
-          <div class="voice-mark" aria-hidden="true">"</div>
-          <p>疲れにくくなったのが一番の変化。身体を動かすことが楽しくなって、生活全体が変わりました。</p>
-          <div class="voice-card-dot" aria-hidden="true"></div>
-        </blockquote>
+  <!-- ─── PHILOSOPHY ─── -->
+  <section class="philosophy-section" aria-labelledby="philosophy-heading">
+    <div class="container">
+      <div class="philosophy-inner">
+        <p class="section-eyebrow" style="justify-content:center;">身体づくりの考え方</p>
+        <h2 class="section-heading" id="philosophy-heading" style="text-align:center;margin-bottom:32px;">無理な食事制限ではなく、<br><em>続けられる身体づくりを</em></h2>
+        <p>ホリエジムでは、<br>極端な食事制限や、<br>無理なダイエットではなく、<br>日常生活の中で続けやすい<br>身体づくりを大切にしています。</p>
+        <p class="philosophy-highlight">「健康的に身体を変えたい」<br>そんな方におすすめです。</p>
       </div>
     </div>
   </section>
@@ -1043,42 +1354,41 @@
   <section class="flow-section" aria-labelledby="flow-heading">
     <div class="container">
       <p class="section-eyebrow">体験の流れ</p>
-      <h2 class="section-heading" id="flow-heading">体験レッスンの<em>ステップ</em></h2>
-
+      <h2 class="section-heading" id="flow-heading">体験トレーニングの<em>流れ</em></h2>
       <ol class="flow-list">
         <li class="flow-item">
-          <div class="flow-num">01</div>
+          <div class="flow-num">①</div>
           <div class="flow-body">
             <h3>カウンセリング</h3>
             <p>お悩みや目標を丁寧にお伺いします</p>
           </div>
         </li>
         <li class="flow-item">
-          <div class="flow-num">02</div>
+          <div class="flow-num">②</div>
           <div class="flow-body">
             <h3>姿勢・身体チェック</h3>
             <p>現在の身体の状態を確認します</p>
           </div>
         </li>
         <li class="flow-item">
-          <div class="flow-num">03</div>
+          <div class="flow-num">③</div>
           <div class="flow-body">
-            <h3>体験レッスン</h3>
+            <h3>体験トレーニング</h3>
             <p>あなたに合わせた内容で無理なく実施</p>
           </div>
         </li>
         <li class="flow-item">
-          <div class="flow-num">04</div>
+          <div class="flow-num">④</div>
           <div class="flow-body">
             <h3>フィードバック</h3>
             <p>身体の状態や改善ポイントをご説明</p>
           </div>
         </li>
         <li class="flow-item">
-          <div class="flow-num">05</div>
+          <div class="flow-num">⑤</div>
           <div class="flow-body">
             <h3>今後のご提案</h3>
-            <p>目標に合わせた通い方をご案内します</p>
+            <p>目標に合わせたプランをご案内します</p>
           </div>
         </li>
       </ol>
@@ -1089,15 +1399,16 @@
   <section class="cta-section" id="contact" aria-labelledby="cta-heading">
     <div class="container">
       <div class="cta-inner">
-        <p class="section-eyebrow" style="justify-content:center;">体験レッスン受付中</p>
-        <h2 id="cta-heading">まずは一度、<br>体験レッスンへ。</h2>
-        <p>「運動が苦手な私でも大丈夫かな…」<br>そんな方こそ、ぜひ一度体験してみてください。</p>
-        <a href="tel:0000000000" class="cta-btn">体験レッスンを予約する</a>
+        <p class="section-eyebrow" style="justify-content:center;">体験トレーニング受付中</p>
+        <h2 id="cta-heading">「運動が苦手な私でも大丈夫かな…」<br>そんな方こそ、<br>ぜひ一度体験してみてください。</h2>
+        <p>身体は、正しく整えて動かすことで、少しずつ変わっていきます。<br>無理に追い込むのではなく、身体を整えながら、<br>健康的に理想の身体を目指していく。<br>あなたの"変わりたい"を、ホリエジムがサポートします。</p>
+        <a href="tel:0000000000" class="cta-btn">体験トレーニングを予約する</a>
         <div class="cta-tags">
+          <span class="cta-tag">ホリエジム 新桜台</span>
+          <span class="cta-tag">新桜台駅徒歩1分</span>
           <span class="cta-tag">初心者歓迎</span>
           <span class="cta-tag">完全マンツーマン</span>
           <span class="cta-tag">専門家監修</span>
-          <span class="cta-tag">新桜台駅 徒歩1分</span>
         </div>
       </div>
     </div>
