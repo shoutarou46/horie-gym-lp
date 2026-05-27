@@ -384,91 +384,42 @@
     /* ─── PAIN ─── */
     .pain-section { background: var(--bg2); }
 
-    .pain-cards {
+    .pain-checklist {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 32px;
       margin-top: 40px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .pain-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 2px 12px rgba(61,53,48,0.07);
-      transition: box-shadow 0.2s, transform 0.2s;
-      text-align: center;
-    }
-
-    .pain-card:hover {
-      box-shadow: 0 6px 24px rgba(61,53,48,0.13);
-      transform: translateY(-2px);
-    }
-
-    .pain-card-img {
-      width: 100%;
-      aspect-ratio: 3/2;
-      background: var(--sage-pale);
-      position: relative;
+    .pain-checklist li {
       display: flex;
       align-items: center;
-      justify-content: center;
-    }
-
-    /* 点線の枠 */
-    .pain-card-img::before {
-      content: '';
-      position: absolute;
-      inset: 8px;
-      border: 2px dashed var(--sage-dark);
-      border-radius: 8px;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* アイコン＋テキスト */
-    .pain-card-img::after {
-      content: '🖼' '\A' '写真を挿入';
-      white-space: pre;
-      text-align: center;
-      font-size: 11px;
-      font-weight: 700;
-      line-height: 2;
-      letter-spacing: 0.1em;
-      color: var(--sage-dark);
-      position: relative;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .pain-card-img img {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .pain-card-text {
-      padding: 10px 8px 13px;
-      font-size: 13px;
+      gap: 12px;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-size: clamp(0.9rem, 1.6vw, 1rem);
       font-weight: 700;
       color: var(--text);
-      line-height: 1.45;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
+      box-shadow: 0 2px 8px rgba(61,53,48,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
 
-    .pain-card-text::before {
+    .pain-checklist li:hover {
+      box-shadow: 0 4px 16px rgba(61,53,48,0.12);
+      transform: translateY(-1px);
+    }
+
+    .pain-checklist li::before {
       content: '✔';
       color: var(--sage);
-      font-size: 11px;
+      font-size: 1rem;
       flex-shrink: 0;
+      line-height: 1;
     }
 
     /* ─── ABOUT ─── */
@@ -1402,7 +1353,7 @@
         aspect-ratio: 4/3;
       }
 
-      .pain-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .pain-checklist { grid-template-columns: 1fr; gap: 8px; }
       .intro-list { grid-template-columns: repeat(2, 1fr); gap: 10px; }
       .approach-grid { grid-template-columns: 1fr; gap: 12px; }
       .reason-card { flex-direction: column; min-height: unset; }
@@ -1516,37 +1467,17 @@
     <div class="container">
       <p class="section-eyebrow">お悩み</p>
       <h2 class="section-heading" id="pain-heading">こんなお悩み<em>ありませんか？</em></h2>
-      <ul class="pain-cards">
-        <li class="pain-card">
-          <div class="pain-card-img">
-            <img src="images/女性お腹つまむ.png" alt="お腹がぽっこり出る" loading="lazy" onerror="this.style.display='none'">
-          </div>
-          <p class="pain-card-text">お腹がぽっこり出る</p>
-        </li>
-        <li class="pain-card">
-          <div class="pain-card-img">
-            <img src="images/pain-02.jpg" alt="下半身ばかり張る" loading="lazy" onerror="this.style.display='none'">
-          </div>
-          <p class="pain-card-text">下半身ばかり張る</p>
-        </li>
-        <li class="pain-card">
-          <div class="pain-card-img">
-            <img src="images/pain-03.jpg" alt="肩や首に負担がかかる" loading="lazy" onerror="this.style.display='none'">
-          </div>
-          <p class="pain-card-text">肩や首に負担がかかる</p>
-        </li>
-        <li class="pain-card">
-          <div class="pain-card-img">
-            <img src="images/pain-04.jpg" alt="疲れやすくなる" loading="lazy" onerror="this.style.display='none'">
-          </div>
-          <p class="pain-card-text">疲れやすくなる</p>
-        </li>
-        <li class="pain-card">
-          <div class="pain-card-img">
-            <img src="images/pain-05.jpg" alt="ボディラインが崩れて見える" loading="lazy" onerror="this.style.display='none'">
-          </div>
-          <p class="pain-card-text">ボディラインが崩れて見える</p>
-        </li>
+      <ul class="pain-checklist">
+        <li>お腹まわりや下半身が気になる</li>
+        <li>姿勢が悪く見えてしまう</li>
+        <li>運動不足を感じている</li>
+        <li>ダイエットしても続かない</li>
+        <li>ジムに通っても変化を感じなかった</li>
+        <li>何をやればいいか分からない</li>
+        <li>肩こり・腰の負担・疲れやすさが気になる</li>
+        <li>健康的に身体を引き締めたい</li>
+        <li>無理な食事制限はしたくない</li>
+        <li>初心者でも安心して始めたい</li>
       </ul>
     </div>
   </section>
