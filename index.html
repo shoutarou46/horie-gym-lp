@@ -449,6 +449,18 @@
 
     .pain-photo-img[src=""] { display: none; }
 
+    .pain-photo-wrap.photo-loaded {
+      border: none;
+      min-height: unset;
+      background: none;
+      display: block;
+    }
+    .pain-photo-wrap.photo-loaded .photo-placeholder { display: none; }
+    .pain-photo-wrap.photo-loaded .pain-photo-img {
+      position: static;
+      height: auto;
+    }
+
     /* ─── ABOUT ─── */
     .about-section { background: var(--bg); }
 
@@ -1495,7 +1507,9 @@
           <span class="photo-placeholder-text">ここに写真が入ります</span>
           <span class="photo-placeholder-hint">pain-main.jpg をimagesフォルダに配置してください</span>
         </div>
-        <img src="images/pain-main.jpg" alt="お悩みのある女性" class="pain-photo-img" loading="lazy" onerror="this.style.display='none'">
+        <img src="images/pain-main.jpg" alt="お悩みのある女性" class="pain-photo-img" loading="lazy"
+          onload="this.closest('.pain-photo-wrap').classList.add('photo-loaded')"
+          onerror="this.style.display='none'">
       </div>
 
       <ul class="pain-checklist">
