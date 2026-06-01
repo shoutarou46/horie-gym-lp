@@ -1302,6 +1302,13 @@
       width: 88px;
       height: auto;
     }
+    .illust-card img {
+      width: 88px;
+      height: 88px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
     .illust-card-label {
       font-size: 11px;
       font-weight: 700;
@@ -1591,9 +1598,25 @@
           </ul>
         </div>
         <div class="features-illust">
-          <!-- イラスト1: 姿勢チェック -->
+          <!--
+            ══════════════════════════════════════════════════
+            イラスト画像の差し替え方法
+            ──────────────────────────────────────────────────
+            images/ フォルダに以下のファイルを配置するだけで
+            自動的に画像が切り替わります。
+              ① images/feature1.jpg（姿勢・バランスチェック）
+              ② images/feature2.jpg（体幹トレーニング）
+              ③ images/feature3.jpg（継続的なサポート）
+            .jpg のほか .png / .webp も使用できます。
+            ファイルを置かない場合は元のイラストが表示されます。
+            ══════════════════════════════════════════════════
+          -->
+
+          <!-- イラスト1: 姿勢チェック ▼ images/feature1.jpg を配置で差し替え -->
           <div class="illust-card">
-            <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <img src="images/feature1.jpg" alt="姿勢・バランスチェック"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <svg style="display:none" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <circle cx="40" cy="52" r="38" fill="#e8f0e8"/>
               <line x1="40" y1="14" x2="40" y2="90" stroke="#8aaa8c" stroke-width="1.2" stroke-dasharray="3,2" opacity="0.7"/>
               <circle cx="40" cy="24" r="9" fill="#fdf9f6" stroke="#8aaa8c" stroke-width="2"/>
@@ -1607,9 +1630,12 @@
             </svg>
             <span class="illust-card-label">姿勢・バランスチェック</span>
           </div>
-          <!-- イラスト2: 体幹トレーニング（ブリッジポーズ） -->
+
+          <!-- イラスト2: 体幹トレーニング ▼ images/feature2.jpg を配置で差し替え -->
           <div class="illust-card">
-            <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <img src="images/feature2.jpg" alt="体幹トレーニング"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <svg style="display:none" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <ellipse cx="50" cy="42" rx="46" ry="34" fill="#e8f0e8"/>
               <rect x="12" y="63" width="76" height="7" rx="3.5" fill="#8aaa8c" opacity="0.25"/>
               <rect x="15" y="49" width="8" height="18" rx="4" fill="#8aaa8c" opacity="0.75"/>
@@ -1621,9 +1647,12 @@
             </svg>
             <span class="illust-card-label">体幹トレーニング</span>
           </div>
-          <!-- イラスト3: ストレッチ・継続サポート -->
+
+          <!-- イラスト3: 継続サポート ▼ images/feature3.jpg を配置で差し替え -->
           <div class="illust-card">
-            <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <img src="images/feature3.jpg" alt="継続的なサポート"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <svg style="display:none" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <circle cx="40" cy="52" r="38" fill="#e8f0e8"/>
               <path d="M33 18 L40 10 L47 18" stroke="#5c7d5e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               <circle cx="40" cy="28" r="9" fill="#fdf9f6" stroke="#8aaa8c" stroke-width="2"/>
