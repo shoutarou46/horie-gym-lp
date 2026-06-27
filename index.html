@@ -298,6 +298,23 @@
       width: 100%;
       height: auto;
     }
+    .banner-strip {
+      background: var(--bg);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .banner-strip-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .banner-strip-inner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
     .hero-wave {
       position: absolute;
       bottom: -1px; left: 0; right: 0;
@@ -1102,14 +1119,18 @@
         <span class="hero-badge">専門家監修</span>
         <span class="hero-badge">新桜台駅 徒歩1分</span>
       </div>
-      <div class="hero-img-wrap">
-        <img src="images/banner.jpg" alt="ホリエジム パーソナルトレーニング" loading="eager" onerror="this.parentElement.style.display='none'">
-      </div>
     </div>
     <svg class="hero-wave" viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
       <path d="M0,40 C240,8 480,65 720,36 C960,8 1200,62 1440,38 L1440,70 L0,70 Z" fill="#fffef8"/>
     </svg>
   </section>
+
+  <!-- ─── BANNER ─── -->
+  <div class="banner-strip">
+    <div class="banner-strip-inner">
+      <img src="images/banner.jpg" alt="入会金・キャンペーン情報" loading="eager" onerror="this.parentElement.parentElement.style.display='none'">
+    </div>
+  </div>
 
   <!-- ─── INTRO ─── -->
   <section class="intro-section" aria-labelledby="intro-heading">
