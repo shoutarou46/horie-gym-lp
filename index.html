@@ -913,6 +913,49 @@
       transition: background 0.2s ease, transform 0.2s ease;
     }
     .btn-cta:hover { background: var(--coral-dark); transform: translateY(-2px); }
+    .cta-subtitle {
+      color: rgba(255,255,255,0.80);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    .cta-btn-wrap {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-hotpepper {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8202b;
+      color: var(--white);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 18px 36px;
+      border-radius: 2px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn-hotpepper:hover { background: #c41520; transform: translateY(-2px); }
+    .btn-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #06C755;
+      color: var(--white);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 18px 36px;
+      border-radius: 2px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn-line:hover { background: #059a42; transform: translateY(-2px); }
     .cta-tags {
       display: flex;
       flex-wrap: wrap;
@@ -1518,7 +1561,15 @@
         無理に追い込むのではなく、身体を整えながら、健康的に理想の身体を目指していく。<br>
         あなたの"変わりたい"を、ホリエジムがサポートします。
       </p>
-      <a href="tel:0000000000" class="btn-cta">体験トレーニングを予約する</a>
+      <p class="cta-subtitle">初回体験はホットペッパーもしくは公式LINEから</p>
+      <div class="cta-btn-wrap">
+        <a href="#" class="btn-hotpepper" target="_blank" rel="noopener noreferrer">
+          ホットペッパーから予約する
+        </a>
+        <a href="#" class="btn-line" target="_blank" rel="noopener noreferrer">
+          公式LINEから予約する
+        </a>
+      </div>
       <div class="cta-tags">
         <span class="cta-tag">ホリエジム 新桜台</span>
         <span class="cta-tag">新桜台駅徒歩1分</span>
@@ -1614,6 +1665,11 @@
           referrerpolicy="no-referrer-when-downgrade"
           title="ホリエジム アクセスマップ"
           aria-label="ホリエジム 新桜台 Googleマップ"></iframe>
+        <p class="info-detail" style="margin-top:20px;">
+          新桜台駅４番出口を出ると目の前にあるビルの２Fがホリエジムです。<br>
+          外階段から直接２Fにお越しください。<br>
+          店内は明るく広い空間ですが、隠れ家的なパーソナルスタジオです。お気軽にお声掛けください。
+        </p>
         <a href="#contact" class="btn-primary" style="margin-top:36px;display:inline-block;">
           初回体験を予約する
         </a>
