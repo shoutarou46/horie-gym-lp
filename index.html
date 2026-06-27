@@ -443,30 +443,58 @@
       width: 100%; height: auto;
       border-radius: 10px;
     }
-    .pain-grid {
+    .intro-pain-list {
+      list-style: none;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
       margin: 28px 0;
     }
-    .pain-item {
+    .intro-pain-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+    .intro-pain-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 10px;
+      background: var(--ocean-pale);
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 13px 16px;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--text);
+      justify-content: center;
+      overflow: hidden;
     }
-    .pain-item::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--lagoon);
-      border-radius: 50%;
-      flex-shrink: 0;
+    .intro-pain-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 2;
+    }
+    .intro-pain-placeholder {
+      font-size: 0.68rem;
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.6;
+      padding: 8px;
+      pointer-events: none;
+    }
+    .intro-pain-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+    .intro-pain-label::before {
+      content: '✔\00a0';
+      color: var(--lagoon);
+      font-size: 0.68rem;
     }
 
     /* ─── PAIN SECTION ─── */
@@ -1032,10 +1060,10 @@
       .reason-card-img { width: 100%; min-height: 160px; }
       .illust-grid { grid-template-columns: 1fr; }
       .hero-inner { padding: 60px 18px 110px; }
-      .pain-grid { grid-template-columns: 1fr 1fr; }
+      .intro-pain-list { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     }
     @media (max-width: 400px) {
-      .pain-grid { grid-template-columns: 1fr; }
+
       .hero-badges { gap: 8px; }
     }
   </style>
@@ -1111,13 +1139,43 @@
         </p>
       </div>
       <div class="reveal reveal-delay-2" style="margin-top:24px;">
-        <div class="pain-grid">
-          <div class="pain-item">お腹がぽっこり出る</div>
-          <div class="pain-item">下半身ばかり張る</div>
-          <div class="pain-item">肩や首に負担がかかる</div>
-          <div class="pain-item">疲れやすくなる</div>
-          <div class="pain-item">ボディラインが崩れて見える</div>
-        </div>
+        <ul class="intro-pain-list">
+          <li class="intro-pain-item">
+            <div class="intro-pain-img">
+              <span class="intro-pain-placeholder">📷 写真</span>
+              <img src="images/intro-pain-01.jpg" alt="お腹がぽっこり出る" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <span class="intro-pain-label">お腹がぽっこり出る</span>
+          </li>
+          <li class="intro-pain-item">
+            <div class="intro-pain-img">
+              <span class="intro-pain-placeholder">📷 写真</span>
+              <img src="images/intro-pain-02.jpg" alt="下半身ばかり張る" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <span class="intro-pain-label">下半身ばかり張る</span>
+          </li>
+          <li class="intro-pain-item">
+            <div class="intro-pain-img">
+              <span class="intro-pain-placeholder">📷 写真</span>
+              <img src="images/intro-pain-03.jpg" alt="肩や首に負担がかかる" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <span class="intro-pain-label">肩や首に負担がかかる</span>
+          </li>
+          <li class="intro-pain-item">
+            <div class="intro-pain-img">
+              <span class="intro-pain-placeholder">📷 写真</span>
+              <img src="images/intro-pain-04.jpg" alt="疲れやすくなる" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <span class="intro-pain-label">疲れやすくなる</span>
+          </li>
+          <li class="intro-pain-item">
+            <div class="intro-pain-img">
+              <span class="intro-pain-placeholder">📷 写真</span>
+              <img src="images/intro-pain-05.jpg" alt="ボディラインが崩れて見える" loading="lazy" onerror="this.style.display='none'">
+            </div>
+            <span class="intro-pain-label">ボディラインが崩れて見える</span>
+          </li>
+        </ul>
       </div>
       <div class="reveal reveal-delay-1" style="margin-top:36px;">
         <p class="section-lead">
