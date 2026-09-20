@@ -163,7 +163,8 @@
       min-height: 100vh;
       background: var(--white);
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
       padding-top: 64px;
       position: relative;
       overflow: hidden;
@@ -208,7 +209,7 @@
     }
     .hero-img-wrap {
       width: 100%;
-      max-width: 420px;
+      max-width: 480px;
       margin: 0 auto 40px;
       overflow: hidden;
       border-radius: 16px;
@@ -219,6 +220,7 @@
     .hero-img-wrap img {
       width: 100%;
       height: auto;
+      display: block;
     }
     .banner-strip {
       background: var(--white);
@@ -1046,6 +1048,12 @@
       .reason-card-img { width: 100%; min-height: 160px; }
       .illust-grid { grid-template-columns: 1fr; }
       .hero-inner { padding: 48px 18px 48px; }
+      .hero-img-wrap {
+        max-width: none;
+        margin: 0 0 32px;
+        border-radius: 0;
+        box-shadow: none;
+      }
       .intro-pain-list { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     }
   </style>
@@ -1064,10 +1072,10 @@
 
   <!-- ─── HERO ─── -->
   <section class="hero" role="banner">
+    <div class="hero-img-wrap">
+      <img src="images/hero.png" alt="カラダを引き締め理想の姿へ｜パーソナルトレーニング ホリエジム 新桜台" loading="eager">
+    </div>
     <div class="hero-inner">
-      <div class="hero-img-wrap">
-        <img src="images/hero.png" alt="カラダを引き締め理想の姿へ｜パーソナルトレーニング ホリエジム 新桜台" loading="eager">
-      </div>
       <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
         ただ鍛えるだけではなく、姿勢から整える身体づくり｜パーソナルトレーニング ホリエジム 新桜台
       </h1>
